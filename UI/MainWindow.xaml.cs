@@ -30,16 +30,35 @@ namespace UI
             DataContext = _logic;
         }
 
-        private void OnClick_Roll(object sender, RoutedEventArgs e)
+        private void OnClick_OfficialRoll(object sender, RoutedEventArgs e)
         {
-            _logic.Roll();
+            _logic.OfficialRoll();
         }
-        private void OnClick_Result(object sender, RoutedEventArgs e)
+
+        private void OnClick_CustomRoll(object sender, RoutedEventArgs e)
+        {
+            _logic.CustomRoll();
+        }
+
+        private void OnClick_OfficialResult(object sender, RoutedEventArgs e)
         {
             try
             {
-                int roll = int.Parse(RollInput.Text);
-                _logic.ManualRoll(roll);
+                int roll = int.Parse(OfficialRollInput.Text);
+                _logic.OfficialManualRoll(roll);
+            }
+            catch
+            {
+                MessageBox.Show("The Roll value should always be a number");
+            }
+        }
+
+        private void OnClick_CustomResult(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int roll = int.Parse(CustomRollInput.Text);
+                _logic.CustomManualRoll(roll);
             }
             catch
             {

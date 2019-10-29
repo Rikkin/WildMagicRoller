@@ -6,46 +6,68 @@
         xmlns:ViewModels="clr-namespace:Engine.ViewModels;assembly=Engine"
         d:DataContext="{d:DesignInstance ViewModels:Logic}"
         mc:Ignorable="d"
-        Title="Wild Magic Roller" Height="350" Width="350">
-    <Grid>
+        Title="Wild Magic Roller" Height="150" Width="600">
+    <Grid Background="DimGray">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Background="ForestGreen">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        
+        <!--First Column containing AutoRoll buttons-->
+        <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+               Content="Roll on official table!"/>
+        <Button Grid.Row="1" Grid.Column="0" Height="25" Width="80" HorizontalAlignment="Center" VerticalAlignment="Center"
+                Background="Aquamarine" Content="Roll the D100" Click="OnClick_OfficialRoll"/>
+        <Label Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+               Content="Roll on custom table!"/>
+        <Button Grid.Row="4" Grid.Column="0" Height="25" Width="80" HorizontalAlignment="Center" VerticalAlignment="Center"
+                Background="Aquamarine" Content="Roll the Dice" Click="OnClick_CustomRoll"/>
+        
+        <!-- Second collumn containing manual input rolls-->
+        <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+               Content="Enter number between 1-10 for official table!"/>
+
+        <Grid Grid.Row="1" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Height="25" Width="65" Margin="10" Background="Aquamarine" 
-                    Content="Roll D100" Click="OnClick_Roll"/>
-
-            <Grid Grid.Column="2" Background="BlanchedAlmond">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1*"/>
-                </Grid.ColumnDefinitions>
-                
-                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  Background="AliceBlue" FontSize="10"
-                       Content="Please enter a number between 1 and 10"/>
-                
-                <TextBox Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" Width="50" Height="25"
-                     x:Name="RollInput" Text="{Binding InputRoll}"/>
-                
-                <Button Grid.Row="1" Grid.Column="1" Height="25" Width="65" Margin="10" Background="Aquamarine" 
-                    Content="Get Result" Click="OnClick_Result"/>
-
-
-            </Grid>
-
+            <TextBox Grid.Column="0" HorizontalAlignment="Center" Width="60" Height="25"
+                     x:Name="OfficialRollInput"/>
+            <Button Grid.Column="1" Height="25" Width="60" HorizontalAlignment="Center" VerticalAlignment="Center"
+                Background="Aquamarine" Content="Get result" Click="OnClick_OfficialResult"/>
         </Grid>
 
-        <TextBlock Grid.Row="1" HorizontalAlignment="Center" Background="Pink" Text="{Binding CurrentResult.WildMagicEffect}"/>
+        <Label Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+               Content="Enter number between 1-10 for custom table!"/>
+
+        <Grid Grid.Row="4" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox Grid.Column="0" HorizontalAlignment="Center" Width="60" Height="25"
+                     x:Name="CustomRollInput"/>
+            <Button Grid.Column="1" Height="25" Width="60" HorizontalAlignment="Center" VerticalAlignment="Center"
+                Background="Aquamarine" Content="Get result" Click="OnClick_CustomResult"/>
+        </Grid>
+        
+        <!-- Third column displaying results-->
+        <Label Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.RowSpan="2"
+               FontSize="15" Content=" Wild Magic Result"/>
+        <TextBlock Grid.Row="2" Grid.Column="2" Grid.RowSpan="3" HorizontalAlignment="Center" FontSize="11" TextWrapping="Wrap"
+                   Text="{Binding CurrentResult.WildMagicEffect}"/>
+
     </Grid>
 </Window>
