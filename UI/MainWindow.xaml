@@ -34,7 +34,7 @@
         
         <!-- Second collumn containing manual input rolls-->
         <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
-               Content="Enter number between 1-10 for official table!"/>
+               Content="Enter your physical roll!"/>
 
         <Grid Grid.Row="1" Grid.Column="1">
             <Grid.ColumnDefinitions>
@@ -49,7 +49,7 @@
         </Grid>
 
         <Label Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
-               Content="Enter number between 1-10 for custom table!"/>
+               Content="Enter your physical roll (max 20)"/>
 
         <Grid Grid.Row="4" Grid.Column="1">
             <Grid.ColumnDefinitions>

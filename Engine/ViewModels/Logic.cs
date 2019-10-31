@@ -24,13 +24,13 @@ namespace Engine.ViewModels
 
         public WildMagic OfficialRoll()
         {
-            int roll = RandomNumberGenerator.NumberBetween(1, 5);
+            int roll = RandomNumberGenerator.NumberBetween(1, 50);
             return CurrentResult = TableFactory.GetResult(roll);
         }
 
         public WildMagic CustomRoll()
         {
-            int roll = RandomNumberGenerator.NumberBetween(1, 5);
+            int roll = RandomNumberGenerator.NumberBetween(1, 20);
             return CurrentResult = TableFactory.GetCustomResult(roll);
         }
 
@@ -49,15 +49,7 @@ namespace Engine.ViewModels
 
         public WildMagic CustomManualRoll(int manualRoll)
         {
-
-
-            // Check if roll is Odd, and add 1 in that case. This is to align with our 1-50 table.
-            if (manualRoll % 2 != 0)
-            {
-                manualRoll++;
-            }
-            int Roll = manualRoll / 2;
-            return CurrentResult = TableFactory.GetCustomResult(Roll);
+            return CurrentResult = TableFactory.GetCustomResult(manualRoll);
         }
     } 
 }

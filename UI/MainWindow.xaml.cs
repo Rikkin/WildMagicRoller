@@ -23,7 +23,6 @@ namespace UI
     {
         private readonly Logic _logic = new Logic();
 
-
         public MainWindow()
         {
             InitializeComponent();
