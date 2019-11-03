@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <WildMagics>
 	<Result WildMagicID="1" WildMagicEffect="Placeholder effect for custom wild magic 1"/>
 	<Result WildMagicID="2" WildMagicEffect="Placeholder effect for custom wild magic 2"/>
@@ -20,5 +20,4 @@
 	<Result WildMagicID="18" WildMagicEffect="Placeholder effect for custom wild magic 18"/>
 	<Result WildMagicID="19" WildMagicEffect="Placeholder effect for custom wild magic 19"/>
 	<Result WildMagicID="20" WildMagicEffect="Placeholder effect for custom wild magic 20"/>
-	
 </WildMagics>

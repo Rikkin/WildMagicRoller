@@ -68,6 +68,11 @@ namespace Engine.Factories
         {
             return _customWildMagicTable.FirstOrDefault(i => i.WildMagicID == id);
         }
+        public static int GetNumberRange()
+        {
+            int Range = _customWildMagicTable.Count();
+            return Range;
+        }
 
         private static int GetXmlAttributeAsInt(XmlNode node, string attributeName)
         {

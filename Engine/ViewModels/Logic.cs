@@ -30,7 +30,7 @@ namespace Engine.ViewModels
 
         public WildMagic CustomRoll()
         {
-            int roll = RandomNumberGenerator.NumberBetween(1, 20);
+            int roll = RandomNumberGenerator.NumberBetween(1, SetNumberRange());
             return CurrentResult = TableFactory.GetCustomResult(roll);
         }
 
@@ -50,6 +50,12 @@ namespace Engine.ViewModels
         public WildMagic CustomManualRoll(int manualRoll)
         {
             return CurrentResult = TableFactory.GetCustomResult(manualRoll);
+        }
+
+        public int SetNumberRange()
+        {
+            int NumberRange = TableFactory.GetNumberRange();
+            return NumberRange;
         }
     } 
 }

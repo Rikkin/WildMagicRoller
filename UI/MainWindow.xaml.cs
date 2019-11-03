@@ -27,6 +27,7 @@ namespace UI
         {
             InitializeComponent();
             DataContext = _logic;
+            CustomLabel.Content = $"Enter your physical roll! Max {_logic.SetNumberRange()}";
         }
 
         private void OnClick_OfficialRoll(object sender, RoutedEventArgs e)
